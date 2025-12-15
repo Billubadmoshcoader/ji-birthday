@@ -21,16 +21,10 @@ body{
   flex-direction:column;
   align-items:center;
   gap:20px;
-  animation: fade 0.6s ease;
 }
 
 .page.active{
   display:flex;
-}
-
-@keyframes fade{
-  from{opacity:0; transform:scale(0.95);}
-  to{opacity:1; transform:scale(1);}
 }
 
 h1{ color:#5a2a27; }
@@ -57,7 +51,6 @@ button{
   cursor:pointer;
   background:#ff6f91;
   color:white;
-  box-shadow:0 6px 12px rgba(0,0,0,0.2);
 }
 
 button:hover{
@@ -69,7 +62,6 @@ button:hover{
 video{
   width:300px;
   border-radius:20px;
-  box-shadow:0 8px 16px rgba(0,0,0,0.3);
 }
 </style>
 </head>
@@ -98,18 +90,18 @@ video{
     </select>
   </div>
 
-  <button id="goBtn" onclick="checkDate()" style="display:none;">
+  <button id="goBtn" style="display:none;" onclick="checkDate()">
     Isko daba kr aage nikal 😌👉
   </button>
 </div>
 
-<!-- PAGE 1 : BIRTHDAY -->
+<!-- PAGE 1 : BIRTHDAY (AUTO) -->
 <div class="page" id="birthdayPage">
   <h1>🎉 Aajjjj to Laadlee ka Birthdayyy 🎉</h1>
   <p>Happy Birthday Yaadv Jii 💖🥰</p>
 </div>
 
-<!-- PAGE 2 : MEETHI SHURUAAT -->
+<!-- PAGE 2 -->
 <div class="page">
   <h1>🍫 Ek Chhoti Si Meethi Shuruaat 🍫</h1>
   <img src="lotochocopie.png">
@@ -168,7 +160,7 @@ video{
 
 <script>
 let current = 0;
-const pages = document.querySelectorAll('.page');
+const pages = document.querySelectorAll(".page");
 
 function showBtn(){
   if(day.value && month.value && year.value){
@@ -183,10 +175,10 @@ function checkDate(){
 
     setTimeout(()=>{
       birthdayPage.classList.remove("active");
-      pages[1].classList.add("active");
-      current = 1;
+      current = 2; // START STORY PAGE
+      pages[current].classList.add("active");
     },2500);
-  }else{
+  } else {
     alert("😜 Galat date hai… dobara try karo");
   }
 }
