@@ -2,107 +2,203 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday 💖</title>
+<title>For My Laadlee 💖</title>
 
 <style>
-*{
+body{
   margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html, body{
-  width:100%;
-  height:100%;
-  scroll-behavior:smooth;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* ===== Common Section Style ===== */
-section{
-  width:100vw;
   height:100vh;
   display:flex;
-  align-items:center;
   justify-content:center;
-  flex-direction:column;
+  align-items:center;
+  background:linear-gradient(135deg,#ffe6f0,#fff5f8);
+  font-family:'Segoe UI',sans-serif;
   text-align:center;
 }
 
-/* ===== Intro Section ===== */
-.intro{
-  background:linear-gradient(135deg,#ffe6f0,#fff5f8);
+.page{
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  gap:20px;
 }
 
-.intro h1{
-  font-size:2.2rem;
-  color:#ff4d88;
+.page.active{
+  display:flex;
 }
 
-.intro p{
-  font-size:1.1rem;
-  margin-top:10px;
-  color:#444;
+h1{ color:#5a2a27; }
+p{ color:#6a3a3a; font-size:18px; }
+small{ color:#7a4a4a; }
+
+select{
+  padding:10px;
+  font-size:16px;
+  border-radius:10px;
 }
 
-/* ===== Wishes Section ===== */
-.wishes{
-  background:#fff;
-  padding:20px;
+img{
+  width:260px;
+  border-radius:20px;
+  box-shadow:0 8px 16px rgba(0,0,0,0.2);
 }
 
-.wishes h2{
-  color:#ff4d88;
-  margin-bottom:15px;
+button{
+  padding:14px 32px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  background:#ff6f91;
+  color:white;
 }
 
-.wishes p{
-  font-size:1.05rem;
-  line-height:1.6;
-  color:#333;
+button:hover{
+  background:#ff3b6f;
 }
 
-/* ===== FINAL POSTER SECTION ===== */
-.poster-section{
-  width:100vw;
-  height:100vh;
-  overflow:hidden;
-}
+.choice button{ margin:8px; }
 
-.poster-section img{
-  width:100vw;
-  height:100vh;
-  object-fit:cover;     /* 🔥 iPhone 15 perfect fit */
-  display:block;
+video{
+  width:300px;
+  border-radius:20px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- SECTION 1 -->
-<section class="intro">
-  <h1>Hey Heena 💖</h1>
-  <p>Scroll slowly… something special is waiting ✨</p>
-</section>
+<!-- PAGE 0 : CALENDAR -->
+<div class="page active">
+  <h1>📅 Aaj ki Date Daalo</h1>
+  <p>(hint: koi bahut khaas din 😏)</p>
 
-<!-- SECTION 2 -->
-<section class="wishes">
-  <h2>Happy Birthday 🎂</h2>
+  <div>
+    <select id="day" onchange="showBtn()">
+      <option value="">Day</option>
+      <option value="15">15</option>
+    </select>
+
+    <select id="month" onchange="showBtn()">
+      <option value="">Month</option>
+      <option value="1">January</option>
+    </select>
+
+    <select id="year" onchange="showBtn()">
+      <option value="">Year</option>
+      <option value="2026">2026</option>
+    </select>
+  </div>
+
+  <button id="goBtn" style="display:none;" onclick="checkDate()">
+    Isko daba kr aage nikal 😌👉
+  </button>
+</div>
+
+<!-- PAGE 1 : BIRTHDAY (AUTO) -->
+<div class="page" id="birthdayPage">
+  <h1>🎉 Aajjjj to Laadlee ka Birthdayyy 🎉</h1>
+  <p>Happy Birthday Yaadv Jii 💖🥰</p>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <h1>🍫 Ek Chhoti Si Meethi Shuruaat 🍫</h1>
+  <img src="lotochocopie.png">
+  <button onclick="nextPage()">Click to Eat 😋</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <h1>Naadiyaa 😌💗<br><small>(haan haan, wahi jo sabse zyada cute hai)</small></h1>
+  <img src="billota2.jpg">
+  <button onclick="nextPage()">jiii 😌💓</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+  <h1>Meri Baggoo 🐱<br><small>(thodi si nakhre wali, par meri 😏)</small></h1>
+  <img src="billota1.jpg">
+  <button onclick="nextPage()">jiii 🙈</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+  <h1>Meri Soni Swani 💖<br><small>(itni pyaari ki dil automatic smile kare)</small></h1>
+  <img src="billota3.png">
+  <button onclick="nextPage()">jiii 🥰</button>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+  <h1>Theek Hai 😌<br><small>ek last sawaal… sach sach batana 😏</small></h1>
+  <img src="kuttaa.gif">
+  <div class="choice">
+    <button onclick="nextPage()">jii 😇</button>
+    <button onclick="showMessage()">jii nhiii 🙄</button>
+  </div>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page" id="msgPage">
+  <h1>Too ho jaa laadlee 💕</h1>
   <p>
-    Tu sirf ek friend nahi hai,<br>
-    tu ek special feeling hai 💫<br><br>
-    Hamesha khush reh,<br>
-    hamesha smile karti reh 😊<br><br>
-    — From someone who truly cares 💕
+    Aaj tera din hai 😌💖  
+    <br>aur thoda sa special feel karwana mera kaam 😏  
+    <br><br>🎉 Janamdin ki dher saari shubkaamnaae 🎉
   </p>
-</section>
+  <button onclick="showVideo()">theek 😌💗</button>
+</div>
 
-<!-- SECTION 3 : FINAL POSTER -->
-<section class="poster-section">
-  <img src="BIRTHDAY.png" alt="Birthday Poster">
-</section>
+<!-- PAGE 8 -->
+<div class="page" id="videoPage">
+  <h1>Sirf Tere Liye ❤️</h1>
+  <video controls>
+    <source src="YOUR_VIDEO.mp4" type="video/mp4">
+  </video>
+</div>
+
+<script>
+let current = 0;
+const pages = document.querySelectorAll(".page");
+
+function showBtn(){
+  if(day.value && month.value && year.value){
+    goBtn.style.display = "inline-block";
+  }
+}
+
+function checkDate(){
+  if(day.value==="15" && month.value==="1" && year.value==="2026"){
+    pages[0].classList.remove("active");
+    birthdayPage.classList.add("active");
+
+    setTimeout(()=>{
+      birthdayPage.classList.remove("active");
+      current = 2; // START STORY PAGE
+      pages[current].classList.add("active");
+    },2500);
+  } else {
+    alert("😜 Galat date hai… dobara try karo");
+  }
+}
+
+function nextPage(){
+  pages[current].classList.remove("active");
+  current++;
+  pages[current].classList.add("active");
+}
+
+function showMessage(){
+  pages[current].classList.remove("active");
+  msgPage.classList.add("active");
+}
+
+function showVideo(){
+  msgPage.classList.remove("active");
+  videoPage.classList.add("active");
+}
+</script>
 
 </body>
 </html>
