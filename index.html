@@ -59,9 +59,18 @@ button:hover{
 
 .choice button{ margin:8px; }
 
-video{
-  width:300px;
-  border-radius:20px;
+/* ===== FINAL POSTER FULL SCREEN ===== */
+.poster{
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+}
+
+.poster img{
+  width:100vw;
+  height:100vh;
+  object-fit:cover;   /* 🔥 iPhone 15 perfect */
+  display:block;
 }
 </style>
 </head>
@@ -95,10 +104,10 @@ video{
   </button>
 </div>
 
-<!-- PAGE 1 : BIRTHDAY (AUTO) -->
+<!-- PAGE 1 -->
 <div class="page" id="birthdayPage">
   <h1>🎉 Aajjjj to Laadlee ka Birthdayyy 🎉</h1>
-  <p>Happy Birthday Yaadv Jii 💖🥰</p>
+  <p>Happy Birthday Yaadaav Jii 💖🥰</p>
 </div>
 
 <!-- PAGE 2 -->
@@ -145,17 +154,16 @@ video{
   <p>
     Aaj tera din hai 😌💖  
     <br>aur thoda sa special feel karwana mera kaam 😏  
-    <br><br>🎉 Janamdin ki dher saari shubkaamnaae 🎉
+    <br><br>🎉 Janamdin ki dher saari shubkaamnaae Maharani 🎉
   </p>
   <button onclick="showVideo()">theek 😌💗</button>
 </div>
 
-<!-- PAGE 8 -->
+<!-- PAGE 8 : POSTER (VIDEO REMOVED) -->
 <div class="page" id="videoPage">
-  <h1>Sirf Tere Liye ❤️</h1>
-  <video controls>
-    <source src="YOUR_VIDEO.mp4" type="video/mp4">
-  </video>
+  <div class="poster">
+    <img src="BIRTHDAY.png" alt="Birthday Poster">
+  </div>
 </div>
 
 <script>
@@ -175,7 +183,7 @@ function checkDate(){
 
     setTimeout(()=>{
       birthdayPage.classList.remove("active");
-      current = 2; // START STORY PAGE
+      current = 2;
       pages[current].classList.add("active");
     },2500);
   } else {
