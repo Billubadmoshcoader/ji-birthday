@@ -23,12 +23,10 @@ body{
   gap:20px;
 }
 
-.page.active{
-  display:flex;
-}
+.page.active{ display:flex; }
 
 h1{ color:#5a2a27; }
-p{ color:#6a3a3a; font-size:18px; }
+p{ color:#6a3a3a; font-size:18px; max-width:90%; }
 small{ color:#7a4a4a; }
 
 select{
@@ -53,13 +51,10 @@ button{
   color:white;
 }
 
-button:hover{
-  background:#ff3b6f;
-}
+button:hover{ background:#ff3b6f; }
 
 .choice button{ margin:8px; }
 
-/* ===== FINAL POSTER FULL SCREEN ===== */
 .poster{
   width:100vw;
   height:100vh;
@@ -69,15 +64,22 @@ button:hover{
 .poster img{
   width:100vw;
   height:100vh;
-  object-fit:cover;   /* 🔥 iPhone 15 perfect */
+  object-fit:cover;
   display:block;
+}
+
+.bigText{
+  font-size:42px;
+  font-weight:bold;
+  color:#ff3b6f;
+  text-shadow:2px 2px 8px rgba(0,0,0,0.2);
 }
 </style>
 </head>
 
 <body>
 
-<!-- PAGE 0 : CALENDAR -->
+<!-- PAGE 0 -->
 <div class="page active">
   <h1>📅 Aaj ki Date Daalo</h1>
   <p>(hint: koi bahut khaas din 😏)</p>
@@ -119,28 +121,28 @@ button:hover{
 
 <!-- PAGE 3 -->
 <div class="page">
-  <h1>Naadiyaa 😌💗<br><small>(haan haan, wahi jo sabse zyada cute hai)</small></h1>
+  <h1>Naadiyaa 😌💗</h1>
   <img src="billota2.jpg">
   <button onclick="nextPage()">jiii 😌💓</button>
 </div>
 
 <!-- PAGE 4 -->
 <div class="page">
-  <h1>Meri Baggoo 🐱<br><small>(thodi si nakhre wali, par meri 😏)</small></h1>
+  <h1>Meri Baggoo 🐱</h1>
   <img src="billota1.jpg">
   <button onclick="nextPage()">chupp kuttee 🙈</button>
 </div>
 
 <!-- PAGE 5 -->
 <div class="page">
-  <h1>Meri Sooni Swaaniii 💖<br><small>(itni pyaari ki dil automatic smile kare)</small></h1>
+  <h1>Meri Sooni Swaaniii 💖</h1>
   <img src="billota3.png">
   <button onclick="nextPage()">Nepali Murgi Itna Marungi na 🥰</button>
 </div>
 
 <!-- PAGE 6 -->
 <div class="page">
-  <h1>Theek Hai 😌<br><small>ek last sawaal… sach sach batana 😏</small></h1>
+  <h1>Theek Hai 😌</h1>
   <img src="kuttaa.gif">
   <div class="choice">
     <button onclick="nextPage()">jii 😇</button>
@@ -154,15 +156,52 @@ button:hover{
   <p>
     Aaj tera din hai 😌💖  
     <br>aur thoda sa special feel karwana mera kaam 😏  
-    <br><br>🎉 Janamdin ki dher saari shubkaamnaae Maharani Ji(HOGI APNE GHR PE) 🎉
+    <br><br>🎉 Janamdin ki dher saari shubkaamnaae Maharani Ji 🎉
   </p>
-  <button onclick="showVideo()">theek 😌💗</button>
+  <button onclick="showPoster()">theek 😌💗</button>
 </div>
 
-<!-- PAGE 8 : POSTER (VIDEO REMOVED) -->
-<div class="page" id="videoPage">
+<!-- PAGE 8 : POSTER -->
+<div class="page" id="posterPage">
   <div class="poster">
-    <img src="BIRTHDAY.png" alt="Birthday Poster">
+    <img src="BIRTHDAY.png">
+  </div>
+  <button onclick="nextPage()">abb tu pitaa bacchee 😏👉</button>
+</div>
+
+<!-- PAGE 9 : PARAGRAPH + PHOTOS -->
+<div class="page">
+  <p>
+Happy Birthday, oyeee ek matr legend! 🎂😂  
+Aaj ke din paida hui thi, tabhi bhagwan ne socha hoga –  
+“Chalo duniya me ek extra drama piece bhej dete hain.”  
+
+<br><br>
+Teri bakchodi aur tera unlimited gossip –  
+sab milke tujhe ek premium quality ki rasmalai banate hain 🤌😂  
+
+<br><br>
+Stay crazy, stay funny,  
+aur hamesha full pagalpanti wali Heena hi rehnaaa 💃🎉
+  </p>
+
+  <img src="photo1.jpg">
+  <img src="photo2.jpg">
+
+  <button onclick="nextPage()">veryyyy veryyy happpy birthday tooooo youuuu 🎉</button>
+</div>
+
+<!-- PAGE 10 -->
+<div class="page">
+  <h1>😌 Ek Last Surprise...</h1>
+  <button onclick="nextPage()">ye button Auntyy ji ke liyeee 💝</button>
+</div>
+
+<!-- PAGE 11 : FINAL -->
+<div class="page">
+  <div class="bigText">
+    Get well soooooonnn  
+    <br>Mmmmyyyyy jjiiiiiii 💖
   </div>
 </div>
 
@@ -202,13 +241,15 @@ function showMessage(){
   msgPage.classList.add("active");
 }
 
-function showVideo(){
+function showPoster(){
   msgPage.classList.remove("active");
-  videoPage.classList.add("active");
+  posterPage.classList.add("active");
+  current = 8;
 }
 </script>
 
 </body>
 </html>
+
 
 
